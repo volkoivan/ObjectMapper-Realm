@@ -2,9 +2,6 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
-let realmVersionStr = "10.54.1"
-let objectMapperVersionStr = "4.2.0"
-
 let package = Package(
     name: "ObjectMapper+Realm",
     platforms: [
@@ -19,7 +16,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", .exact(Version(objectMapperVersionStr)!)),
+        .package(url: "https://github.com/realm/realm-swift", .upToNextMajor(from: "10.50.0")),
+        .package(url: "https://github.com/tristanhimmelman/ObjectMapper", .upToNextMinor(from: "4.2.0")),
     ],
     targets: [
         .target(
